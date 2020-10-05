@@ -21,7 +21,7 @@ public class HelloControllerTest {
     public void hello_returns() throws Exception {
         String hello = "hello";
 
-        mvc.perform(get("/hello"))//MovkMvc를 통해 /hello로 get요청을 보냄 체이닝으로 응답 검증
+        mvc.perform(get("/hello"))//MovkMvc를 통해 /hello로 get 요청을 보냄 체이닝으로 응답 검증
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
     }
