@@ -1,4 +1,4 @@
-package com.playground.springboot.hello;
+package com.playground.springboot.hello.web;
 import com.playground.springboot.hello.web.HelloController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,8 +7,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)//테스트를 진행할때 인자 실행자를 실행시킴 -> JUnit과 실행자 인자 사이에 연결자 역할 
@@ -24,6 +27,20 @@ public class HelloControllerTest {
         mvc.perform(get("/hello"))//MovkMvc를 통해 /hello로 get 요청을 보냄 체이닝으로 응답 검증
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
+    }
+
+    @Test
+    public void helloDto_returns() throws Exception {
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(
+                get("/hello/dto").param("name", name)
+                .param("amount", String.valueOf(amount))
+        )
+           .andExpect(status().isOk())
+           .andExpect(jsonPath("$.name",is(name)))
+           .andExpect(jsonPath("$.amount", is(amount)));
     }
 
 }
