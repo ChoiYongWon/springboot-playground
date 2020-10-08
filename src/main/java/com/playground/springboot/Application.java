@@ -1,4 +1,4 @@
-package com.playground.springboot.hello;
+package com.playground.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

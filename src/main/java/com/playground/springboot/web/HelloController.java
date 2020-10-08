@@ -1,5 +1,5 @@
-package com.playground.springboot.hello.web;
-import com.playground.springboot.hello.web.dto.HelloResponseDto;
+package com.playground.springboot.web;
+import com.playground.springboot.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

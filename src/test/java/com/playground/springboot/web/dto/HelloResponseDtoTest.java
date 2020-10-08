@@ -1,4 +1,4 @@
-package com.playground.springboot.hello.web.dto;
+package com.playground.springboot.web.dto;
 
 import org.junit.Test;
 
