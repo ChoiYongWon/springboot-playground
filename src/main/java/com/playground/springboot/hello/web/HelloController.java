@@ -12,7 +12,7 @@ public class HelloController {
     }
 
     @GetMapping("/hello/dto")
-    public HelloResponseDto helloResponseDto(@RequestParam("name") String name, @RequestParam("amount") int amount){
+    public HelloResponseDto helloResponseDto(@RequestParam("name") String name, @RequestParam("amount") int amount){// RequestParam으로 피라미터 파싱
         return new HelloResponseDto(name, amount);
     }
 }
